@@ -80,8 +80,8 @@ DATABASES = {
         'NAME': 'neondb',
         'USER': 'Rajan-Jasani9',
         'PASSWORD':'LCi2HsBg9hor',
-        'HOST': 'http://ep-floral-queen-151540.ap-southeast-1.aws.neon.tech',
-#         'PORT':'5432'
+        'HOST': 'ep-floral-queen-151540.ap-southeast-1.aws.neon.tech',
+        'PORT':'5432'
     }
 }
 
