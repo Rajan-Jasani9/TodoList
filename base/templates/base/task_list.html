@@ -1,0 +1,136 @@
+{% extends "base/basic.html" %}
+{% block div %}
+
+<h1>My todo list</h1>
+
+<p class = "greetings">Hello,&nbsp{{request.user|title}}!</p>
+<div class= "options1">
+{% if request.user.is_authenticated %}
+    <a href="{% url 'logout' %}" class = "log"> Logout </a>
+{% else %}
+    <a href="{% url 'login' %}" class = "log" > Login </a>
+{% endif  %}
+
+
+<a href="{% url 'task-create' %}" class="log">Add Task</a>  
+
+</div>
+
+
+<div class="search">
+    <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/msoeawqm.json"
+    trigger="hover"
+    style="width:32px;height:32px">
+</lord-icon>
+<form method = "get"  action="">
+    <input type="text" name="Search-area" value="{{search_input}}" class = "tabsearch" >
+    <input type="submit" value="Submit" class = "button">
+</form>
+</div>
+<table>
+    {% if tasks|length > 0 %}
+            <tr>
+            <th>Items</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        {%for task in tasks %}
+        <tr>
+            <div>
+                <td class = "task_name"> <a href="{% url 'task' task.id %}"></a>  
+                <span style="{% if task.complete %}text-decoration: line-through;{% endif %}">{{task.title}} </span>  </td>
+            
+                <td> <a href="{% url 'task-edit' task.id  %}"><script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+                    <lord-icon
+                        src="https://cdn.lordicon.com/wloilxuq.json"
+                        trigger="hover"
+                        style="width:32px;height:32px">
+                    </lord-icon></a> </td>
+                <td> <a href="{% url 'task-delete' task.id  %}"><script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+                    <lord-icon
+                        src="https://cdn.lordicon.com/gsqxdxog.json"
+                        trigger="hover"
+                        colors="primary:#121331,secondary:#08a88a"
+                        stroke="55"
+                        style="width:32px;height:32px">
+                    </lord-icon></a> </td>
+            </div>
+        </tr>
+    
+        {% endfor %}
+        
+        {% else %}
+
+        <h3>No items Available</h3>
+        {% endif %}
+
+</table>
+
+{% endblock div %} 
+
+{% block css %}
+
+    
+form{
+    display:inline;
+}
+.search{
+    padding: 5px;
+    display:flex;
+    align-items:center;
+    align-items:center;
+    justify-content:center;
+}
+
+.main_heading{ 
+    height: calc(386px + {{ tasks|length }}*36px);
+}
+
+.button{
+    border-radius: 10px ;
+    border: white;
+    background-color: #08a88a;
+    height: 30px;
+    width: 80px;    
+    
+}
+.button:hover{
+    border:2px solid #124a40;
+}
+
+.tabsearch{
+    border-radius: 10px;
+    height: 25px;
+}
+
+.greetings{
+    font-size: larger;
+}
+ 
+.log{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 80px;
+    background-color: #08a88a;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+
+}
+.log:hover{
+    border: 2px solid #124a40;
+
+} 
+.options1{
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+}
+{% endblock css%} 

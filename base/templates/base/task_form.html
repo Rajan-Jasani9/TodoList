@@ -1,0 +1,131 @@
+{% extends "base/basic.html" %}
+
+{% block div %}
+<h1>Task Form</h1>
+
+<form method = "post" action = "" class="cont">
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="options">
+        <a href="{% url 'tasks' %}" class="back">Go back</a>
+        <input type="submit" value="Submit" class="input">
+    </div>
+
+</form>
+
+{% endblock %} 
+{% block css %}
+#id_complete{
+    margin:0;
+    margin-left:2px;
+    height:40px;
+}
+form p{
+    display:flex;
+    justify-content:left;
+    align-items:center;
+    align-content:left; 
+}
+.cont{
+    display:flex;
+    flex-direction: column;
+    align-items:left;
+    justify-content:center;
+}
+input{
+    border-radius:10px;
+}
+textarea{
+    border-radius:10px;
+    width:168px;
+    height:35px;
+}
+.main_heading{
+    height: 500px;
+}
+.container{
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    align-items: center;
+}
+.container input{
+    border-radius: 5px ;
+    
+}
+.container form .reg{
+    border-radius: 5px ;
+    padding: 5px;
+    margin-top: 5px;
+    border: 2px solid #08a88a ;
+}
+.container form{
+    display: flex;
+    flex-direction: column;
+    align-items: left;   
+}
+.container li,span{
+    font-size: smaller;
+    font-style: italic;
+}
+.container label{
+    font-weight: bold;
+}
+.container form p{
+    margin: 0;
+}
+.container ul{
+    padding:14px;
+    margin: 0;
+}
+a{
+    color: black;
+    text-decoration: none;
+
+}
+a:hover{
+    font-weight: bolder;
+}
+.back{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    text-decoration :none;
+    border-radius: 30px;
+    background-color: #08a88a;
+    height: 35px;
+    width: 80px;
+    padding: 10px;
+    margin-right: 20px;
+    font-size: 18px;
+}
+.back a{
+    text-decoration: none;
+}
+.back:hover{
+    cursor: pointer;
+    border: 2px solid black;
+}
+.input{
+    color:black;
+    font-size: 18px;
+    border: none;
+    text-decoration :none;
+    border-radius: 30px;
+    background-color: #08a88a;
+    height: 55px;
+    width: 100px;
+    padding: 10px;
+}
+.input:hover{
+    cursor: pointer;
+    border: 2px solid black;
+}
+.options{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center ;
+    align-content: space-between;
+} 
+{% endblock %} 

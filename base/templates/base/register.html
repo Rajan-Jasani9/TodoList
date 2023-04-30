@@ -1,0 +1,112 @@
+{% extends 'base/reg_log_base.html' %}
+
+{% block div %}           
+    <div class = 'container'>
+        
+
+    <h1>Register</h1>
+
+    <form method = 'post' action="">
+    {% csrf_token %}
+        <!-- <input type="hidden" name="csrfmiddlewaretoken" value="qjF2W87vDIbziINVy3XWTJVQ29fkD5977oGrd6hVhcXQCJ6Dz9JjcClta8rdFLjp"> -->
+        <p>
+<label for="id_username">Username:</label>
+<input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus required id="id_username">
+<br>
+  <span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+
+
+</p>
+
+
+<p>
+<label for="id_password1">Password:</label>
+<input type="password" name="password1" autocomplete="new-password" required id="id_password1">
+  
+  <span class="helptext"><ul><li>Your password can’t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can’t be a commonly used password.</li><li>Your password can’t be entirely numeric.</li></ul></span>
+
+
+</p>
+
+
+<p>
+<label for="id_password2">Password confirmation:</label>
+<input type="password" name="password2" autocomplete="new-password" required id="id_password2">
+<br>
+  <span class="helptext">Enter the same password as before, for verification.</span>
+
+
+  
+
+</p>
+        <input class = "log" type="submit" value="Register">
+    </form>
+    
+    <p>Already Have an Account??</p>
+    <a href="{% url 'login' %}" class = "log">Login</a>
+</div>
+{% endblock %} 
+{% block css %}
+    
+    .main_heading{
+        height: 550px;
+    }
+    .container{
+        display: flex;
+        width: 400px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container input{
+        border-radius: 5px ;        
+    }
+    .container form .reg{
+        border-radius: 5px ;
+        padding: 5px;
+        margin-top: 5px;
+        border: 2px solid #08a88a ;
+    }
+    .container form{
+        display: flex;
+        flex-direction: column;
+        align-items: left;   
+    }
+    .container li,span{
+        font-size: smaller;
+        font-style: italic;
+    }
+    .container label{
+        font-weight: bold;
+    }
+    .container form p{
+        margin: 0;
+    }
+    .container ul{
+        padding:14px;
+        margin: 0;
+    }
+    a{
+        color: black;
+        text-decoration: none;
+
+    }
+    a:hover{
+        font-weight: bolder;
+    }
+    .log{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 80px;
+        background-color: #08a88a;
+        border: none;
+        border-radius: 10px;
+        text-decoration: none;
+    
+    }
+    .log:hover{
+        border: 2px solid #124a40;
+    
+    }     
+{% endblock css%}    

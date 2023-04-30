@@ -1,0 +1,60 @@
+{% extends 'base/reg_log_base.html' %}
+
+{% block div %}
+
+<div class = 'container'>
+    <h2>Login Form</h2>
+
+    <form method = 'post' action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Login" class="log">
+    </form>
+
+    <p>Dont Have an Account??</p>
+    <a href="{% url 'register' %}" class="log" >Register</a>
+</div>
+{% endblock div %}
+
+
+{% block css %}
+    .container{
+        display: flex;
+        width: 300px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container input{
+        border-radius: 5px ;
+        
+    }
+    .container button{
+        border-radius: 5px ;
+        
+    }
+    .container form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;   
+    }
+    .log{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 80px;
+        background-color: #08a88a;
+        border: none;
+        border-radius: 10px;
+        text-decoration: none;
+        color:black;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 15 px;
+    
+    }
+    .log:hover{
+        border: 2px solid #124a40;
+    
+    } 
+    
+{% endblock css%}    

@@ -1,0 +1,63 @@
+{% extends "base/basic.html" %}
+{% block div %}
+            
+<form method = 'post' action="">
+    {% csrf_token %}
+    <p class="warning">Are you sure you want to delete the task, "{{task}}" ? </p>
+    <div class= "options">
+        <a href="{% url 'tasks' %}" class = "back">Go Back</a> 
+        <div> <input type="submit" value="Delete"> </div>
+    </div>
+</form>
+{% endblock %} 
+
+{% block css %}
+    .warning{
+        font-size: larger;
+        color:#124a40;
+    }
+    .options{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center ;
+        align-content: space-between;
+    }
+    .back{
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        text-decoration :none;
+        border-radius: 30px;
+        background-color: #08a88a;
+        height: 35px;
+        width: 80px;
+        padding: 10px;
+        margin-right: 20px;
+        font-size: 18px;
+    }
+    .back a{
+        text-decoration: none;
+    }
+    .back:hover{
+        cursor: pointer;
+        border: 2px solid black;
+    }
+    input{
+        font-size: 18px;
+        border: none;
+        text-decoration :none;
+        border-radius: 30px;
+        background-color: #08a88a;
+        height: 55px;
+        width: 100px;
+        padding: 10px;
+    }
+    input:hover{
+        cursor: pointer;
+        border: 2px solid black;
+    }
+    .main_heading{
+        height: 300px;
+    }
+{% endblock css %}  
