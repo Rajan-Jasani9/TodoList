@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-j614=3@*$!(z1n*bif+1+jh3zg-#c_=q-m*6ajq$wolc(316!o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'todolist.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'todolist',
-        'USER': 'postgres',
-        'PASSWORD':'Rajan@2002',
-        'HOST': 'localhost',
-        'PORT':'5432'
+        'NAME': 'neondb',
+        'USER': 'Rajan-Jasani9',
+        'PASSWORD':'LCi2HsBg9hor',
+        'HOST': 'http://ep-floral-queen-151540.ap-southeast-1.aws.neon.tech',
+#         'PORT':'5432'
     }
 }
 
